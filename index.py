@@ -1,7 +1,7 @@
 
 import pandas as pd
 
-# from glob import glob 
+from glob import glob 
 
 
 # load the excel file
@@ -37,7 +37,7 @@ print(f"Mean Value: {mean_value}")
 
 # error handling 
 if "6.1. How would you rate the one-on-one session with your coach (tick N/A if you did not receive these sessions)" in data.columns:
-    mean_value = data["5.6. Having Someone supportive to talk to about my emotions"].mean()
+    mean_value = data["6.1. How would you rate the one-on-one session with your coach (tick N/A if you did not receive these sessions)"].mean()
     print(f"Mean Value: {mean_value}")
 else:
     print("Column not found. Available columns are:")
@@ -76,6 +76,14 @@ summary_stats = question_6_data.describe(include="all")
 question_6_data.head(), top_responses, summary_stats
 
 
+# Load the text data into a structured format
+file_path_csv = "data\Qual Analysis Download_ Gr11 End of Year 2024 - Gr11 End of Year (1).csv" 
+
+# Read the text file into a pandas DataFrame
+data_q6 = pd.read_csv(file_path_csv)
+
+# Inspect the data to ensure correct parsing
+data_q6.head(), data_q6.columns
 
 
 
